@@ -24,8 +24,8 @@ Chatbot:
 - LangChain
 
 UI:
-- CLI
-- Streamlit for Web UI
+- CLI: Typer
+- Web UI: Streamlit
 
 ## Features
 - Git like commands
