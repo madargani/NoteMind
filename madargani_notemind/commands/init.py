@@ -13,11 +13,12 @@ def init(
     """
     Create hidden notemind directory if it doesn't exist
     """
-
-    print("base dir: ", base_dir.absolute())
+    notemind_dir = base_dir / '.notemind'
 
     # Check if .notemind exists
-    if (base_dir / '.notemind').exists():
-        print('notemind directory already exists')
+    if notemind_dir.exists():
+        print(f'Reinitializing NoteMind in {notemind_dir.absolute()}')
+    else:
+        print(f'Initializing NoteMind in {notemind_dir.absolute()}')
 
     # Create .notemind directory
