@@ -1,8 +1,9 @@
 import typer
 
 from pathlib import Path
-from typing import Optional
 from typing_extensions import Annotated
+
+from madargani_notemind.core.init_file_status_db import init_file_status_db
 
 app = typer.Typer()
 
@@ -13,12 +14,19 @@ def init(
     """
     Create hidden notemind directory if it doesn't exist
     """
+
+    # Check if base directory exists
+    if not base_dir.is_dir():
+        print(f'{base_dir} is not a directory.')
+        raise typer.Exit(code=1)
+
     notemind_dir = base_dir / '.notemind'
 
     # Check if .notemind exists
     if notemind_dir.exists():
-        print(f'Reinitializing NoteMind in {notemind_dir.absolute()}')
-    else:
-        print(f'Initializing NoteMind in {notemind_dir.absolute()}')
+        print(f'{notemind_dir} already exists')
+        raise typer.Exit()
 
     # Create .notemind directory
+    notemind_dir.mkdir()
+    init_file_status_db(notemind_dir)
