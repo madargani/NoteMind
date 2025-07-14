@@ -1,13 +1,9 @@
 import sqlite3
 from pathlib import Path
 
-def init_file_status_db(path: Path):
-    # Check if path is valid
-    if not path.is_dir():
-        raise ValueError('Path does not exist')
-
+def init_file_status_db(dir_path: Path):
     # connect to db
-    con = sqlite3.connect(path / 'file_status.db')
+    con = sqlite3.connect(dir_path / 'file_status.db')
     cur = con.cursor()
 
     # create file status table
@@ -15,7 +11,7 @@ def init_file_status_db(path: Path):
     cur.execute('''
         CREATE TABLE FILE_STATUS(
             FILE TEXT PRIMARY KEY, 
-            LAST_MODIFIED INT NOT NULL, 
+            LAST_MODIFIED REAL NOT NULL, 
             STATUS TEXT NOT NULL
         );
     ''')
