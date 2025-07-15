@@ -4,6 +4,7 @@ from pathlib import Path
 from typing_extensions import Annotated
 
 from madargani_notemind.core.init_file_status_db import init_file_status_db
+from madargani_notemind.core.init_vector_db import init_vector_db
 
 app = typer.Typer()
 
@@ -29,4 +30,6 @@ def init(
 
     # Create .notemind directory
     notemind_dir.mkdir()
+
     init_file_status_db(notemind_dir)
+    init_vector_db(notemind_dir)
