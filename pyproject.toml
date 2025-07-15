@@ -6,10 +6,11 @@ authors = [
     { name = "madargani", email = "mad3913@gmail.com" }
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = "^3.9"
 dependencies = [
     "typer (>=0.16.0,<0.17.0)",
-    "chromadb (>=1.0.15,<2.0.0)"
+    "chromadb (>=1.0.15,<2.0.0)",
+    "langchain-text-splitters (>=0.3.8,<0.4.0)"
 ]
 
 [project.scripts]

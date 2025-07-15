@@ -10,6 +10,8 @@ Install poetry dependencies:
 
 ## Links
 Typer one file per function structure:
-- https://typer.tiangolo.com/tutorial/one-file-per-command/
+- <https://typer.tiangolo.com/tutorial/one-file-per-command/>
+Evaluating chunking strategies for retrieval:
+- <https://research.trychroma.com/evaluating-chunking>
 
 

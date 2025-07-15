@@ -3,7 +3,7 @@ from pathlib import Path
 
 from madargani_notemind.core.get_files import get_files
 
-def get_status(dir_path: Path):
+def get_status(dir_path: Path) -> list[tuple[str, float, str]]:
     # status from db
     con = sqlite3.connect(dir_path / '.notemind/file_status.db')
     cur = con.cursor()

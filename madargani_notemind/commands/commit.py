@@ -3,6 +3,7 @@ from pathlib import Path
 import sqlite3
 
 from madargani_notemind.core.get_status import get_status
+from madargani_notemind.core.chunk_text import chunk_text
 
 app = typer.Typer()
 
@@ -16,11 +17,15 @@ def commit():
     # Get files that need to be indexed
     files_to_update = [(x[0], x[1]) for x in get_status(Path.cwd()) if x[2] != 'Up-to-date']
 
-    # chunk
+    # Chunk
+    for file_path, _ in files_to_update:
+        print(*(x for x in chunk_text((Path.cwd() / file_path).read_text())), sep='\n')
 
-    # generate embeddings
+    return
 
-    # update sqlite db
+    # Generate embeddings
+
+    # Update sqlite db
     con = sqlite3.connect(Path.cwd() / '.notemind/file_status.db')
     cur = con.cursor()
     cur.executemany(
