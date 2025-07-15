@@ -1,3 +1,4 @@
+from click import echo
 import typer
 
 from pathlib import Path
@@ -10,11 +11,13 @@ app = typer.Typer()
 
 @app.command()
 def init(
-    base_dir: Annotated[Path, typer.Argument()] = Path.cwd()
+    base_dir: Annotated[Path, typer.Argument()] = None
 ):
     """
     Create hidden notemind directory if it doesn't exist
     """
+    if base_dir is None:
+        base_dir = Path.cwd()
 
     # Check if base directory exists
     if not base_dir.is_dir():
