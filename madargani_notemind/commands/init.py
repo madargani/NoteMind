@@ -1,8 +1,8 @@
-from click import echo
+from types import NoneType
 import typer
 
 from pathlib import Path
-from typing_extensions import Annotated
+from typing_extensions import Annotated, Optional
 
 from madargani_notemind.core.init_file_status_db import init_file_status_db
 from madargani_notemind.core.init_vector_db import init_vector_db
@@ -11,7 +11,7 @@ app = typer.Typer()
 
 @app.command()
 def init(
-    base_dir: Annotated[Path, typer.Argument()] = None
+    base_dir: Annotated[Path | NoneType, typer.Argument()] = None
 ):
     """
     Create hidden notemind directory if it doesn't exist

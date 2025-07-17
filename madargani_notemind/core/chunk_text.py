@@ -2,9 +2,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def chunk_text(text: str) -> list[str]:
     text_splitter = RecursiveCharacterTextSplitter(
-        separators=["\n\n", "\n", ".", "?", "!", " ", ""],
-        chunk_size=200, 
-        chunk_overlap=0,
+        separators=None, # default: ["\n\n", "\n", " ", ""]
+        chunk_size=400, 
+        chunk_overlap=100,
         length_function=len,
         is_separator_regex=False,
     )
