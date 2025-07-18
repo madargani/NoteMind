@@ -12,6 +12,6 @@ def chat(query: str):
     client = chromadb.PersistentClient(base_dir / '.notemind/vector_db.chroma')
     collection = client.get_collection('notemind')
 
-    results = collection.query(query_texts=query)
-    pprint(results)
+    results = collection.query(query_texts=query, n_results=3)
+    pprint(results['documents'])
 

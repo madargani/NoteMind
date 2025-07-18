@@ -14,6 +14,6 @@ def test_sample_notes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     runner.invoke(app, ['init'])
     runner.invoke(app, ['commit'])
 
-    result = runner.invoke(app, ['chat', 'how does rag work?'])
+    result = runner.invoke(app, ['chat', 'What is chemical equilibrium?'])
 
     print(result.stdout)
