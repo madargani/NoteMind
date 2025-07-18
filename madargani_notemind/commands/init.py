@@ -36,3 +36,5 @@ def init(
 
     init_file_status_db(notemind_dir)
     init_vector_db(notemind_dir)
+
+    print(f'Initialized notemind directory at `{base_dir / '.notemind'}`')

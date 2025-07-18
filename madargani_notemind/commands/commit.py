@@ -1,3 +1,4 @@
+from pydantic_core.core_schema import filter_seq_schema
 import typer
 from pathlib import Path
 import sqlite3
@@ -27,12 +28,16 @@ def commit():
     con = sqlite3.connect(base_path / '.notemind/file_status.db')
     cur = con.cursor()
     cur.executemany(
+        'DELETE FROM FILE_STATUS WHERE FILE=?;',
+        [(x[0],) for x in files_to_update if x[2] == 'Deleted']
+    )
+    cur.executemany(
         '''
         INSERT INTO FILE_STATUS VALUES(?, ?)
             ON CONFLICT(FILE) DO UPDATE SET
                 LAST_MODIFIED=EXCLUDED.LAST_MODIFIED;
         ''',
-        [(x[0], x[1]) for x in files_to_update]
+        [(x[0], x[1]) for x in files_to_update if x[2] != 'Deleted']
     )
     con.commit()
     con.close()
