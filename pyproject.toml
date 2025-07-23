@@ -10,7 +10,9 @@ requires-python = "^3.9"
 dependencies = [
     "typer (>=0.16.0,<0.17.0)",
     "chromadb (>=1.0.15,<2.0.0)",
-    "langchain-text-splitters (>=0.3.8,<0.4.0)"
+    "langchain-text-splitters (>=0.3.8,<0.4.0)",
+    "ollama (>=0.5.1,<0.6.0)",
+    "pymupdf4llm (>=0.0.27,<0.0.28)",
 ]
 
 [project.scripts]
