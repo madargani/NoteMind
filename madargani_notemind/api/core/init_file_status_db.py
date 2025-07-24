@@ -10,7 +10,7 @@ def init_file_status_db(dir_path: Path):
     cur.execute('DROP TABLE IF EXISTS FILE_STATUS;')
     cur.execute('''
         CREATE TABLE FILE_STATUS(
-            FILE TEXT PRIMARY KEY, 
+            PATH TEXT PRIMARY KEY, 
             LAST_MODIFIED REAL NOT NULL
         );
     ''')

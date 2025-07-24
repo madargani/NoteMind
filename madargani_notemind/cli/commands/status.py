@@ -3,8 +3,7 @@ from typing_extensions import Annotated
 from pathlib import Path
 from rich.table import Table
 from rich.console import Console
-
-from madargani_notemind.core.get_status import get_status
+from madargani_notemind.api.get_status import get_status
 
 app = typer.Typer()
 
@@ -20,11 +19,11 @@ def status(
     # Get filter and sort statuses
     statuses = get_status(Path.cwd())
     if not all:
-        statuses = [x for x in statuses if x[2] != 'Up-to-date'] 
-    statuses.sort(key=lambda x:x[2])
+        statuses = [x for x in statuses if x[1] != 'Up-to-date'] 
+    statuses.sort(key=lambda x:x[1])
 
     # Print table
     table = Table('file', 'status')
-    for file, last_modifed, status in statuses:
+    for file, status in statuses:
         table.add_row(file, status)
     Console().print(table)

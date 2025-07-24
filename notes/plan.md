@@ -6,7 +6,7 @@ Python:
 - Streamlit
 
 File Ingestion:
-- PyMuPDF, pdfplumber, PyPDF2
+- PyMuPDF
 - python-docx
 
 Embedding:
@@ -41,6 +41,18 @@ UI:
 
 `notemind chat {prompt}`:
 - Answers prompt from user based on embeddings
+
+## Structure
+
+### API folder
+API folder will contain commands for all the core functionalities. This will make it easier to transition to a gui app or to any other application. Devs can interact with a simple api instead of copying code. One file per function.
+
+functions:
+- init_notemind(dir_path: Path) -> int
+- get_status(dir_path: Path) -> List\[Path, str\]
+- commit(dir_path: Path) -> int
+- search(dir_path: Path, query: str) -> List\[QueryResult\]
+- chat(dir_path: Path, query: str, stream: bool = True) -> Iterator\[ChatResponse\]
 
 ## Example walk through
 1. User installs notemind
