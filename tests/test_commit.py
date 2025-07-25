@@ -19,7 +19,7 @@ def test_sample_notes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
 
     print(result.stdout)
 
-    client = chromadb.PersistentClient('.notemind/vector_db.chroma')
+    client = chromadb.PersistentClient('.notemind/chroma')
     collection = client.get_collection('notemind')
 
     assert collection.count() > 0
