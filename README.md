@@ -31,5 +31,6 @@ code blocks for commands
 
 [madargani](https://github.com/madargani)
 
-## Acknowledgments
+## Acknowledgements
 
+- [NotebookLM](https://notebooklm.google/)
