@@ -1,1 +1,0 @@
-import madargani_notemind.streamlit.app
