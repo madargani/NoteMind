@@ -6,17 +6,14 @@ authors = [
     { name = "madargani", email = "mad3913@gmail.com" }
 ]
 readme = "README.md"
-requires-python = "^3.9"
+requires-python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
 dependencies = [
-    "typer (>=0.16.0,<0.17.0)",
     "chromadb (>=1.0.15,<2.0.0)",
     "langchain-text-splitters (>=0.3.8,<0.4.0)",
     "ollama (>=0.5.1,<0.6.0)",
     "pymupdf4llm (>=0.0.27,<0.0.28)",
+    "streamlit (>=1.47.1,<2.0.0)",
 ]
-
-[project.scripts]
-notemind = 'madargani_notemind.cli:app'
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -24,5 +21,3 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 pytest-watch = "^4.2.0"
-typer = {extras = ["all"], version = "^0.16.0"}
-
