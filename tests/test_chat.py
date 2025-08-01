@@ -3,8 +3,6 @@ from typer.testing import CliRunner
 from pathlib import Path
 import shutil
 
-from madargani_notemind.cli import app
-
 runner = CliRunner()
 
 def test_sample_notes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
