@@ -7,5 +7,3 @@ def create_notemind(name: str):
     client = chromadb.PersistentClient(vector_db_path)
     
     _ = client.create_collection(name)
-
-create_notemind("mind_a")

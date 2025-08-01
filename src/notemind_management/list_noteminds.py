@@ -8,5 +8,3 @@ def list_noteminds() -> Sequence[chromadb.Collection]:
     client = chromadb.PersistentClient(vector_db_path)
 
     return client.list_collections()
-
-print(list_noteminds())
