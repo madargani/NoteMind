@@ -23,7 +23,7 @@ def add_note(notemind_name: str, note_path: Path):
         ids.append(f'{note_path}_chunk{i}')
         documents.append(chunk)
         metadatas.append({
-            'source': note_path,
+            'source': str(note_path.absolute()),
             'chunk_index': i,
         })
 
